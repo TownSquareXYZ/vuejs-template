@@ -1,11 +1,13 @@
 // src/navigation/routes.js
 // import { createWebHistory, createRouter } from 'vue-router';
-import IndexPage from '../views/IndexPage.vue';
-import TONConnectPage from '../views/TONConnectPage.vue';
-import InitDataPage from '../views/InitDataPage.vue';
-import ThemeParamsPage from '../views/ThemeParamsPage.vue';
-import LaunchParamsPage from '../views/LaunchParamsPage.vue';
-import { createRouter, createWebHistory } from 'vue-router';
+import IndexPage from "../views/IndexPage.vue";
+import TONConnectPage from "../views/TONConnectPage.vue";
+import InitDataPage from "../views/InitDataPage.vue";
+import ThemeParamsPage from "../views/ThemeParamsPage.vue";
+import LaunchParamsPage from "../views/LaunchParamsPage.vue";
+import { createRouter } from "vue-router";
+
+import { createWebHistory, initNavigator } from "@tma.js/sdk-vue";
 
 export const routes = [
   {
@@ -50,8 +52,11 @@ export const routes = [
   },
 ];
 
+const navigator = initNavigator("app-navigator-state");
+navigator.attach();
+
 const router = createRouter({
-  history: createWebHistory(),
+  history: createWebHistory(navigator),
   routes,
 });
 
