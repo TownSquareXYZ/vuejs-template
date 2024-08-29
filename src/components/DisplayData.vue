@@ -47,25 +47,38 @@ export default {
 <template>
   <h5 class="m-header">{{ header }}</h5>
   <div class="m-display-data-wrapper">
-    <Cell
-      v-for="(item, index) in rows"
-      :key="item.title"
-      :class="getClassName(index)"
-      :title="item.title"
-      :subtitle="
-        typeof item.value === 'string' && !isRGB(item.value)
-          ? item.value.toString()
-          : ''
-      "
-    >
-      <template v-slot:subtitle>
-        <RGB :color="item.value" v-if="isRGB(item.value)"></RGB>
-        <i v-else-if="item.value === undefined">empty</i>
-        <i v-else-if="item.value === false">❌</i>
-        <i v-else-if="item.value === true">✔️</i>
-        <!-- <Checkbox v-else-if="typeof item.value === 'boolean'" checked={item.value} disabled/> -->
-      </template>
-    </Cell>
+    <template v-for="(item, index) in rows" :key="item.title">
+      <Link v-if="'type' in item" :to="`${item.value}`"> 
+        <Cell
+        :class="getClassName(index)"
+        :title="item.title"
+        :subtitle='`Open`'
+      ></Cell>
+      </Link>
+      <Cell
+        v-else
+        :class="getClassName(index)"
+        :title="item.title"
+        :subtitle="
+          typeof item.value === 'string' && !isRGB(item.value)
+            ? item.value.toString()
+            : ''
+        "
+      >
+        <template v-slot:subtitle>
+          <i v-if="item.value === undefined">empty</i>
+          <div v-else>
+            <div v-if="'type' in item"></div>
+            <div v-else-if="typeof item.value === 'string'">
+              <RGB :color="item.value" v-if="isRGB(item.value)"></RGB>
+            </div>
+            <i v-else-if="item.value === false">❌</i>
+            <i v-else-if="item.value === true">✔️</i>
+            <!-- <Checkbox v-else-if="typeof item.value === 'boolean'" checked={item.value} disabled/> -->
+          </div>
+        </template>
+      </Cell>
+    </template>
   </div>
 </template>
 
