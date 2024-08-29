@@ -17,6 +17,7 @@
     "@tonconnect/ui": "^2.0.7",
     "@townsquarelabs/ui-vue": "2.0.7",
     "@twa-dev/types": "^7.0.0",
+    "@vitejs/plugin-basic-ssl": "^1.1.0",
     "@vue/compat": "^3.4.29",
     "@vue/compiler-sfc": "^3.4.31",
     "buffer": "^6.0.3",
