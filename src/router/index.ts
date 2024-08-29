@@ -60,4 +60,13 @@ const router = createRouter({
   routes,
 });
 
+// Stop redirect if it goes to wrong path
+router.beforeEach((to, from, next) => {
+  if (to.path.includes("/tgWebAppData=")) {
+    next(false);
+  } else {
+    next();
+  }
+});
+
 export default router;
