@@ -67,7 +67,7 @@ export default {
       if (wallet) {
         const {
           account: { chain, publicKey, address },
-          device: { appName, appVersion, maxProtocolVersion, platform },
+          device: { appName, appVersion, maxProtocolVersion, platform , features},
         } = wallet.value;
 
         accountRow.value = [
@@ -81,9 +81,15 @@ export default {
           {
             title: "Max Protocol Version",
             value: maxProtocolVersion.toString(),
-            type: "link",
           },
-          { title: "Platform", value: platform, type: "link" },
+          { title: "Platform", value: platform},
+          {
+            title: 'Features',
+            value: features
+              .map((f: { name: string; }) => typeof f === 'object' ? f.name : undefined)
+              .filter((v: any) => v)
+              .join(', '),
+          },
         ];
       } else {
         console.log("-----wallet empty", wallet);
@@ -92,8 +98,7 @@ export default {
 
     function openLink(e: MouseEvent) {
       e.preventDefault();
-      const target = new URL('/ton-connect' , window.location.toString())
-      utils.openLink(target.toString());
+      utils.openLink(wallet.value.aboutUrl);
     }
 
     onMounted(() => {});
