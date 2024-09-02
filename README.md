@@ -31,8 +31,11 @@ This project contains the following scripts:
   standards.
 - `deploy`. Deploys the application to GitHub Pages.
 
-To run a script, use the `yarn dev` command:
+To run a script, use the `yarn` command:
 
+```Bash
+yarn {script}
+# Example: yarn dev
 ```
 
 ## Create Bot and Mini App
@@ -187,13 +190,13 @@ Before deploying the application, make sure that you've built it and going to de
 static files:
 
 ```bash
-npm run build
+yarn build
 ```
 
 Then, run the deployment process, using the `deploy` script:
 
 ```Bash
-npm run deploy
+yarn deploy
 ```
 
 After the deployment completed successfully, visit the page with data according to your
