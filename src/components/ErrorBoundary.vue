@@ -17,7 +17,7 @@ export default {
       return this.fallback;
     },
   },
-  errorCaptured(err : any) {
+  errorCaptured(err: any) {
     this.error = err;
     return false;
   },
@@ -26,11 +26,11 @@ export default {
 
 
 <template>
-    <div>
-      <slot v-if="!error" />
-      <component v-else :is="fallbackComponent" :error="error" />
-    </div>
-  </template>
+  <div>
+    <slot v-if="!error" />
+    <component v-else :is="fallbackComponent" :error="error" />
+  </div>
+</template>
 
 <style scoped lang="scss">
 </style>

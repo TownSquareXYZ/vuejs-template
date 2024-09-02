@@ -5,14 +5,13 @@ import {
   bindViewportCSSVars,
   MiniApp,
   ThemeParams,
-  useLaunchParams,
   useMiniApp,
   useThemeParams,
   useViewport,
   Viewport,
 } from "@tma.js/sdk-vue";
 import { onMounted } from "vue";
-const lp = useLaunchParams(true);
+// import ErrorThrower from "./components/ErrorThrower.vue";
 const miniApp = useMiniApp() as unknown as MiniApp;
 const themeParams = useThemeParams() as unknown as ThemeParams;
 const viewport = useViewport() as unknown as Viewport;
@@ -24,12 +23,12 @@ onMounted(() => {
   if (viewport) {
     bindViewportCSSVars(viewport);
   }
-  // console.log("-----<", themeParams, viewport , lp);
 });
 </script>
 
 <template>
   <router-view />
+  <!-- <ErrorThrower /> -->
 </template>
 
 <style scoped>
