@@ -24,7 +24,7 @@ onMounted(() => {
   if (viewport) {
     bindViewportCSSVars(viewport);
   }
-  console.log("-----<", themeParams, viewport , lp);
+  // console.log("-----<", themeParams, viewport , lp);
 });
 </script>
 

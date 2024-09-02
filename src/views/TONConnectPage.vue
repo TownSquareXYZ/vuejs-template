@@ -92,7 +92,7 @@ export default {
           },
         ];
       } else {
-        console.log("-----wallet empty", wallet);
+        // console.log("-----wallet empty", wallet);
       }
     });
 
