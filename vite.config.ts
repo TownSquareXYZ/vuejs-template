@@ -12,6 +12,9 @@ export default defineConfig({
   optimizeDeps: {
     include: ['vue','buffer'],
   },
+  build: {
+    outDir: 'docs',
+  },
   plugins: [
     vue(),
     // basicSsl()
