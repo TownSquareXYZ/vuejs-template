@@ -163,12 +163,12 @@ Before running the deployment process, ensure that you have done the following:
 2. Replaced the `base` value in `vite.config.ts` and have set it to the name of your GitHub
    repository. Vite will use this value when creating paths to static assets.
 
-For instance, if your GitHub username is `telegram-mini-apps` and the repository name
-is `is-awesome`, the value in the `homepage` field should be the following:
+For instance, if your GitHub username is `townsquarexyz` and the repository name
+is `vuejs-template`, the value in the `homepage` field should be the following:
 
 ```json
 {
-  "homepage": "https://telegram-mini-apps.github.io/is-awesome"
+  "homepage": "https://townsquarexyz.github.io/vuejs-template/"
 }
 ```
 
@@ -176,7 +176,7 @@ And `vite.config.ts` should have this content:
 
 ```ts
 export default defineConfig({
-  base: '/is-awesome/',
+  base: '/vuejs-template/',
   // ...
 });
 ```
@@ -201,7 +201,7 @@ yarn deploy
 
 After the deployment completed successfully, visit the page with data according to your
 username and repository name. Here is the page link example using the data mentioned above:
-https://telegram-mini-apps.github.io/is-awesome
+https://townsquarexyz.github.io/vuejs-template/
 
 ### GitHub Workflow
 
@@ -226,7 +226,7 @@ this, follow the link: `https://github.com/{username}/{repository}/settings/page
 
 ## TON Connect
 
-This boilerplate utilizes the [TON Connect](https://docs.ton.org/develop/dapps/ton-connect/overview)
+This boilerplate utilizes the [TON Connect](https://docs.ton.org/mandarin/develop/dapps/ton-connect/vue)
 project to demonstrate how developers can integrate functionality related to TON cryptocurrency.
 
 The TON Connect manifest used in this boilerplate is stored in the `public` folder, where all
