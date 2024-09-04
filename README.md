@@ -7,7 +7,6 @@ Mini Apps platform using the following technologies and libraries:
 - [TypeScript](https://www.typescriptlang.org/)
 - [TON Connect](https://docs.ton.org/develop/dapps/ton-connect/overview)
 - [@tma.js SDK](https://docs.telegram-mini-apps.com/packages/tma-js-sdk)
-- [Telegram UI](https://github.com/Telegram-Mini-Apps/TelegramUI)
 - [Vite](https://vitejs.dev/)
 
 > The template was created using [npm](https://www.npmjs.com/). Therefore, it is required to use
@@ -19,7 +18,7 @@ If you have just cloned this template, you should install the project dependenci
 command:
 
 ```Bash
-npm install
+yarn install
 ```
 
 ## Scripts
@@ -32,11 +31,11 @@ This project contains the following scripts:
   standards.
 - `deploy`. Deploys the application to GitHub Pages.
 
-To run a script, use the `npm run` command:
+To run a script, use the `yarn` command:
 
 ```Bash
-npm run {script}
-# Example: npm run build
+yarn {script}
+# Example: yarn dev
 ```
 
 ## Create Bot and Mini App
@@ -54,7 +53,7 @@ you can still develop and test them outside of Telegram during the development p
 To run the application in the development mode, use the `dev` script:
 
 ```bash
-npm run dev
+yarn dev
 ```
 
 After this, you will see a similar message in your terminal:
@@ -62,14 +61,14 @@ After this, you will see a similar message in your terminal:
 ```bash
 VITE ready in 275 ms
 
-➜  Local:   http://localhost:5173/reactjs-template
+➜  Local:   http://localhost:8000/vuejs-template
 ➜  press h + enter to show help
 ```
 
 To view the application, you need to open the `Local`
-link (`http://localhost:5173/reactjs-template` in this example) in your browser:
+link (`http://localhost:8000/vuejs-template` in this example) in your browser:
 
-![Application](assets/application.png)
+![Application](src/assets/application.png)
 
 It is important to note that some libraries in this template, such as `@tma.js/sdk`, are not
 intended for use outside of Telegram.
@@ -100,14 +99,14 @@ After uncommenting the function, run the `dev` script again and observe the outp
 ```bash
 VITE ready in 331 ms
 
-➜  Local:   https://localhost:5173/reactjs-template
+➜  Local:   https://localhost:8000/vuejs-template
 ➜  press h + enter to show help
 ```
 
-Visiting the `Local` link (`https://localhost:5173/reactjs-template` in this example) in your
+Visiting the `Local` link (`https://localhost:8000/vuejs-template` in this example) in your
 browser, you will see the following warning:
 
-![SSL Warning](assets/ssl-warning.png)
+![SSL Warning](src/assets/ssl-warning.png)
 
 This browser warning is normal and can be safely ignored as long as the site is secure. Click
 the `Proceed to localhost (unsafe)` button to continue and view the application.
@@ -131,10 +130,7 @@ Here is an example of the output you will see:
 ```bash
 VITE v5.2.12  ready in 257 ms
 
-➜  Local:   https://localhost:5173/reactjs-template
-➜  Network: https://172.27.224.1:5173/reactjs-template
-➜  Network: https://172.19.32.1:5173/reactjs-template
-➜  Network: https://192.168.0.171:5173/reactjs-template
+➜  Local:   https://localhost:8000/vuejs-template
 ```
 
 All `Network` links listed here are accessible to devices on the same network. Using these links,
@@ -167,12 +163,12 @@ Before running the deployment process, ensure that you have done the following:
 2. Replaced the `base` value in `vite.config.ts` and have set it to the name of your GitHub
    repository. Vite will use this value when creating paths to static assets.
 
-For instance, if your GitHub username is `telegram-mini-apps` and the repository name
-is `is-awesome`, the value in the `homepage` field should be the following:
+For instance, if your GitHub username is `townsquarexyz` and the repository name
+is `vuejs-template`, the value in the `homepage` field should be the following:
 
 ```json
 {
-  "homepage": "https://telegram-mini-apps.github.io/is-awesome"
+  "homepage": "https://townsquarexyz.github.io/vuejs-template/"
 }
 ```
 
@@ -180,7 +176,7 @@ And `vite.config.ts` should have this content:
 
 ```ts
 export default defineConfig({
-  base: '/is-awesome/',
+  base: '/vuejs-template/',
   // ...
 });
 ```
@@ -194,18 +190,18 @@ Before deploying the application, make sure that you've built it and going to de
 static files:
 
 ```bash
-npm run build
+yarn build
 ```
 
 Then, run the deployment process, using the `deploy` script:
 
 ```Bash
-npm run deploy
+yarn deploy
 ```
 
 After the deployment completed successfully, visit the page with data according to your
 username and repository name. Here is the page link example using the data mentioned above:
-https://telegram-mini-apps.github.io/is-awesome
+https://townsquarexyz.github.io/vuejs-template/
 
 ### GitHub Workflow
 
@@ -220,8 +216,6 @@ deployment branches.
 You can find the environment settings using this
 URL: `https://github.com/{username}/{repository}/settings/environments`.
 
-![img.png](.github/deployment-branches.png)
-
 In case, you don't want to do it automatically, or you don't use GitHub as the project codebase,
 remove the `.github` directory.
 
@@ -232,7 +226,7 @@ this, follow the link: `https://github.com/{username}/{repository}/settings/page
 
 ## TON Connect
 
-This boilerplate utilizes the [TON Connect](https://docs.ton.org/develop/dapps/ton-connect/overview)
+This boilerplate utilizes the [TON Connect](https://docs.ton.org/mandarin/develop/dapps/ton-connect/vue)
 project to demonstrate how developers can integrate functionality related to TON cryptocurrency.
 
 The TON Connect manifest used in this boilerplate is stored in the `public` folder, where all
@@ -243,5 +237,4 @@ project's information.
 ## Useful Links
 
 - [Platform documentation](https://docs.telegram-mini-apps.com/)
-- [@tma.js/sdk-react documentation](https://docs.telegram-mini-apps.com/packages/tma-js-sdk-react)
 - [Telegram developers community chat](https://t.me/devs)

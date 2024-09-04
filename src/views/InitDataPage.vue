@@ -47,8 +47,8 @@ export default {
     const receiverRows = ref<DisplayDataRow[]>();
     const chatRows = ref<DisplayDataRow[]>();
 
-    console.log("initDataRaw", initDataRaw);
-    console.log("initData", initData);
+    // console.log("initDataRaw", initDataRaw);
+    // console.log("initData", initData);
 
     function getInitDataRows(): DisplayDataRow[] {
       const {
@@ -78,7 +78,7 @@ export default {
       ];
     }
     function getUserRows(user: User): DisplayDataRow[] {
-      console.log(user);
+      // console.log(user);
       return [
         { title: "id", value: user.id.toString() },
         { title: "username", value: user.username },

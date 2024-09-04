@@ -1,6 +1,7 @@
 import { createApp } from 'vue'
 import './style.css'
 import Root from './Root.vue'
+import './mockEnv.ts';
 import '../polyfills';
 import eruda from "eruda";
 

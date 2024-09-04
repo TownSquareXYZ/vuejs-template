@@ -1,31 +1,60 @@
-<script setup lang="ts">
+<template>
+  <ErrorBoundary :fallback="ErrorBoundaryError">
+    <TonConnectUIProvider :options="options">
+      <SDKProvider>
+        <App></App>
+      </SDKProvider>
+    </TonConnectUIProvider>
+  </ErrorBoundary>
+</template>
+
+<script lang="ts">
+import { computed, defineComponent } from "vue";
 import App from "./App.vue";
 import { TonConnectUIProvider } from "@townsquarelabs/ui-vue";
 import { SDKProvider } from "@tma.js/sdk-vue";
+import ErrorBoundary from "./components/ErrorBoundary.vue";
 
-const options = {
-  manifestUrl: "https://ton-connect.github.io/demo-dapp-with-react-ui/tonconnect-manifest.json",
+export default {
+  name: "Root",
+  components:{App , TonConnectUIProvider , SDKProvider , ErrorBoundary},
+  setup() {
+    const options = {
+      manifestUrl:
+        "https://ton-connect.github.io/demo-dapp-with-react-ui/tonconnect-manifest.json",
+    };
+
+    const ErrorBoundaryError = defineComponent({
+      props: {
+        error: {
+          type: [String, Object],
+          required: true,
+        },
+      },
+      setup(props) {
+        const errorMessage = computed(() => {
+          console.log('------ error',props);
+          if (props.error instanceof Error) {
+            return props.error.message;
+          } else if (typeof props.error === "string") {
+            return props.error;
+          } else {
+            return JSON.stringify(props.error);
+          }
+        });
+
+        return { errorMessage };
+      },
+      template: `
+    <div>
+      <p>An unhandled error occurred:</p>
+      <blockquote>
+        <code>{{ errorMessage }}</code>
+      </blockquote>
+    </div>
+  `,
+    });
+    return { options, ErrorBoundaryError };
+  },
 };
 </script>
-<template>
-  <TonConnectUIProvider :options="options">
-    <SDKProvider>
-      <App></App>
-    </SDKProvider>
-  </TonConnectUIProvider>
-</template>
-
-<style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
-</style>

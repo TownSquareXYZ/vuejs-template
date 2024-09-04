@@ -4,10 +4,12 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "deploy": "gh-pages -d doce",
     "dev": "vite --host --force",
     "build": "vue-tsc && vite build",
     "preview": "vite preview"
   },
+  "homepage": "https://townsquarexyz.github.io/vuejs-template/",
   "dependencies": {
     "@tma.js/sdk-vue": "1.0.2",
     "@ton-community/assets-sdk": "^0.0.4",
@@ -17,10 +19,12 @@
     "@tonconnect/ui": "^2.0.7",
     "@townsquarelabs/ui-vue": "2.0.7",
     "@twa-dev/types": "^7.0.0",
+    "@vitejs/plugin-basic-ssl": "^1.1.0",
     "@vue/compat": "^3.4.29",
     "@vue/compiler-sfc": "^3.4.31",
     "buffer": "^6.0.3",
     "eruda": "^3.0.1",
+    "gh-pages": "^6.1.1",
     "jose": "^5.4.1",
     "msw": "^2.3.1",
     "scss": "^0.2.4",
@@ -34,6 +38,6 @@
     "sass": "^1.69.5",
     "typescript": "^5.5.3",
     "vite": "^4.4.5",
-    "vue-tsc": "^1.8.5"
+    "vue-tsc": "^2.1.4"
   }
 }

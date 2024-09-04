@@ -18,7 +18,7 @@ export default {
   components: { Link, Cell, DisplayData },
   setup() {
     const lp = useLaunchParams(true);
-    console.log(lp);
+    // console.log(lp);
 
     const rows: DisplayDataRow[] = [
       { title: "tgWebAppPlatform", value: lp?.platform },

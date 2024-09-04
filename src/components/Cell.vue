@@ -52,6 +52,7 @@ export default {
   }
 }
 .m-cell-wrapper:hover {
-  background: var(--tgui--tertiary_bg_color);
+  background: #f2f2f6;
+  // background: var(--tgui--secondary_bg_color);
 }
 </style>

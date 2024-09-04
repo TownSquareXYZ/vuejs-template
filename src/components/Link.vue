@@ -10,14 +10,18 @@
 </template>
   
   <script lang="ts">
-import { defineComponent, computed } from "vue";
+import { defineComponent, computed, PropType } from "vue";
 import { useUtils } from "@tma.js/sdk-vue";
+import {Path} from '../utils/types'
 
 export default defineComponent({
   name: "Link",
   props: {
     className: String,
-    to: String,
+    to: {
+      type: [String, Object] as PropType<string | Path>,
+      required: true,  // 是否必填视具体需求而定
+    },
     onClick: Function as () => void,
   },
   setup(props) {
@@ -31,6 +35,7 @@ export default defineComponent({
         const { search = "", pathname = "", hash = "" } = props.to!!;
         path = `${pathname}?${search}#${hash}`;
       }
+      // console.log(path);
 
       const targetUrl = new URL(path, window.location.toString());
       const currentUrl = new URL(window.location.toString());
